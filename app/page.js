@@ -65,14 +65,21 @@ export default function Home() {
         }
         .fade-in { opacity: 0; transform: translateY(20px); transition: all 0.6s ease-out; }
         .fade-in-visible { opacity: 1; transform: translateY(0); }
-        .snake-border-container { position: relative; border-radius: 1.5rem; --border-size: 3px; }
-        .snake-border-container::before {
-          content: ''; position: absolute; inset: calc(-1 * var(--border-size));
-          border-radius: inherit;
-          background: conic-gradient(from var(--angle), transparent 70%, #3b82f6, #60a5fa, transparent 100%);
-          animation: snake-border-spin 4s linear infinite;
+        .profile-border {
+          border: 3px solid rgba(255, 255, 255, 0.2);
+          border-radius: 1.5rem;
+          box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+          transition: transform 0.4s ease, box-shadow 0.4s ease;
         }
-        @keyframes snake-border-spin { to { --angle: 360deg; } }
+        .profile-border:hover {
+          transform: scale(1.03);
+          box-shadow: 0 0 25px rgba(59, 130, 246, 0.3);
+        }
+
+        /* Navbar smooth animation */
+        nav {
+          transition: background-color 0.5s ease, padding 0.3s ease;
+        }
       `}</style>
 
       <main
@@ -127,11 +134,12 @@ export default function Home() {
             </p>
           </div>
           <div className="md:w-1/2 flex justify-center">
-            <div className="snake-border-container p-1 w-64 h-64 flex items-center justify-center">
-              <img src="skils/farras.jpg" alt="Farras Ghalyandra" className="w-full h-full object-cover rounded-2xl shadow-2xl" />
+            <div className="profile-border w-64 h-64 overflow-hidden flex items-center justify-center rounded-2xl">
+              <img src="skils/farras.jpg" alt="Farras Ghalyandra" className="w-full h-full object-cover rounded-2xl" />
             </div>
           </div>
         </section>
+        
 
         {/* SKILLS */}
         <section id="skills" className="w-full text-white flex flex-col items-center justify-center px-6 py-24 fade-in">
@@ -261,15 +269,14 @@ export default function Home() {
           </div>
         </section>
 
-        {/* FOOTER */}
-        <footer className="w-full text-gray-300 pt-16">
-          <div className="max-w-6xl mx-auto text-center border-t border-gray-800 py-6">
-            <p className="text-gray-500 text-sm">
-              © {new Date().getFullYear()} <span className="font-medium text-gray-300">Farras Ghalyandra</span>. All Rights Reserved.
-            </p>
-          </div>
-        </footer>
-      </main>
-    </>
-  );
-}  
+        {/* ===== FOOTER ===== */} 
+        <footer className="w-full text-gray-300 pt-16 relative"> 
+          <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-blue-500 to-transparent"></div> <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-start gap-8 px-6 text-center md:text-left"> <div className="md:w-1/2"> <h3 className="text-2xl font-semibold mb-2 text-white">
+            Tetap Terhubung</h3> 
+            <p className="text-gray-400 mb-4"> Saya selalu terbuka untuk peluang baru, kolaborasi, atau sekadar ngobrol tentang teknologi. </p> </div> 
+            <div className="flex flex-row items-center gap-4 mx-auto md:mx-0 mt-8 md:mt-0"> 
+              {[ { href: "https://github.com/farras2121", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg", alt: "GitHub" }, 
+              { href: "https://www.linkedin.com/in/farras-ghalyandra-644304387/", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg", alt: "LinkedIn" }, 
+              { href: "mailto:ghalyandraf@gmail.com", img: "https://cdn-icons-png.flaticon.com/512/732/732200.png", alt: "Email" }, ].map((icon) => ( <a key={icon.alt} href={icon.href} target="_blank" rel="noopener noreferrer" className="group"> 
+              <div className="w-12 h-12 rounded-full flex items-center justify-center bg-gray-800 hover:bg-blue-600 transition-all duration-300 shadow-lg transform hover:scale-110"> <img src={icon.img} alt={icon.alt} className="w-6 h-6 transition-all duration-300 group-hover:filter group-hover:invert" /> </div> </a> ))} </div> </div> 
+              <div className="mt-16 border-t border-gray-800 py-6 text-center w-full"> <p className="text-gray-500 text-sm"> © {new Date().getFullYear()}{" "} <span className="font-medium text-gray-300">Farras Ghalyandra</span>. All Rights Reserved. </p> </div> </footer> </main> </> ); }
