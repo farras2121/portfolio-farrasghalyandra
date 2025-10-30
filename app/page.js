@@ -1,0 +1,275 @@
+"use client";
+import { useEffect, useState } from "react";
+import '@splidejs/react-splide/css';
+import { Splide, SplideSlide } from '@splidejs/react-splide';
+
+export default function Home() {
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const links = document.querySelectorAll('a[href^="#"]');
+    links.forEach((link) => {
+      link.addEventListener("click", (e) => {
+        e.preventDefault();
+        const target = document.querySelector(link.getAttribute("href"));
+        if (target) {
+          window.scrollTo({
+            top: target.offsetTop - 70,
+            behavior: "smooth",
+          });
+        }
+      });
+    });
+
+    const handleMouseMove = (e) => setMousePosition({ x: e.clientX, y: e.clientY });
+    const handleScroll = () => setIsScrolled(window.scrollY > 10);
+
+    window.addEventListener("mousemove", handleMouseMove);
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("mousemove", handleMouseMove);
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  useEffect(() => {
+    const sections = document.querySelectorAll("section");
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          entry.target.classList.toggle("fade-in-visible", entry.isIntersecting);
+        });
+      },
+      { threshold: 0.15 }
+    );
+    sections.forEach((s) => observer.observe(s));
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <>
+      <style>{`
+        body {
+          background: linear-gradient(-45deg, #0f172a, #111827, #1e1b4b, #172554);
+          background-size: 400% 400%;
+          animation: gradient-animation 20s ease infinite;
+          color: #e5e7eb;
+        }
+        @keyframes gradient-animation {
+          0% { background-position: 0% 50%; }
+          50% { background-position: 100% 50%; }
+          100% { background-position: 0% 50%; }
+        }
+        .fade-in { opacity: 0; transform: translateY(20px); transition: all 0.6s ease-out; }
+        .fade-in-visible { opacity: 1; transform: translateY(0); }
+        .snake-border-container { position: relative; border-radius: 1.5rem; --border-size: 3px; }
+        .snake-border-container::before {
+          content: ''; position: absolute; inset: calc(-1 * var(--border-size));
+          border-radius: inherit;
+          background: conic-gradient(from var(--angle), transparent 70%, #3b82f6, #60a5fa, transparent 100%);
+          animation: snake-border-spin 4s linear infinite;
+        }
+        @keyframes snake-border-spin { to { --angle: 360deg; } }
+      `}</style>
+
+      <main
+        className="flex flex-col items-center justify-center text-center text-white overflow-x-hidden"
+        style={{
+          background: `radial-gradient(600px at ${mousePosition.x}px ${mousePosition.y}px, rgba(45, 84, 178, 0.15), transparent 80%)`,
+        }}
+      >
+
+        {/* NAVBAR */}
+        <nav className="fixed top-0 left-0 w-full bg-gray-900/50 backdrop-blur-lg z-50 border-b border-gray-800 shadow-lg transition-all duration-300">
+          <div className={`relative max-w-7xl mx-auto px-6 sm:px-8 flex items-center justify-between ${isScrolled ? "py-4" : "py-2"}`}>
+            <h1 className={`text-white font-bold tracking-wide ${isScrolled ? "text-xl" : "text-lg absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2"}`}>
+              Farras<span className="text-blue-500">G</span>
+            </h1>
+            <button
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className={`sm:hidden text-gray-300 hover:text-blue-400 transition-all duration-500 ${isScrolled ? "opacity-100" : "opacity-0 pointer-events-none"}`}
+            >
+              {isMenuOpen ? "✕" : "☰"}
+            </button>
+            <div className={`hidden sm:flex gap-6 text-gray-300 text-sm ${isScrolled ? "opacity-100" : "opacity-0 pointer-events-none"}`}>
+              {[{ name: "Home", href: "#home" }, { name: "Tentang", href: "#about" }, { name: "Skill", href: "#skills" }, { name: "Projek", href: "#projects" }, { name: "Sertifikat", href: "#sertifikat" }]
+                .map((item) => (
+                  <a key={item.name} href={item.href} className="hover:text-blue-400 transition">{item.name}</a>
+                ))}
+            </div>
+          </div>
+        </nav>
+
+        {/* HERO */}
+        <section id="home" className="min-h-screen flex flex-col items-center justify-center px-6 pt-32 fade-in">
+          <h1 className="text-5xl font-bold mb-4 leading-tight text-gray-50">
+            <span className="bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent">
+              Farras Ghalyandra
+            </span>
+          </h1>
+          <a href="#projects" className="mt-8 px-8 py-3 bg-blue-600 hover:bg-blue-700 rounded-full font-semibold text-base transition-transform hover:scale-105">
+            Lihat Project Saya
+          </a>
+        </section>
+
+        {/* ABOUT */}
+        <section id="about" className="w-full bg-black/20 flex flex-col md:flex-row items-center justify-center gap-10 px-6 py-24 fade-in">
+          <div className="md:w-1/2 text-center md:text-left">
+            <h2 className="text-4xl font-bold mb-6 text-blue-400">Tentang Saya</h2>
+            <p className="text-gray-300 mb-4">
+              Saya seorang <span className="text-white font-semibold">web developer</span> fokus pada front-end dan back-end. Suka membuat tampilan website modern dan interaktif.
+            </p>
+            <p className="text-gray-400">
+              Berpengalaman dengan <span className="text-white">React</span>, <span className="text-white">Next.js</span>, dan <span className="text-white">Laravel</span>.
+            </p>
+          </div>
+          <div className="md:w-1/2 flex justify-center">
+            <div className="snake-border-container p-1 w-64 h-64 flex items-center justify-center">
+              <img src="skils/farras.jpg" alt="Farras Ghalyandra" className="w-full h-full object-cover rounded-2xl shadow-2xl" />
+            </div>
+          </div>
+        </section>
+
+        {/* SKILLS */}
+        <section id="skills" className="w-full text-white flex flex-col items-center justify-center px-6 py-24 fade-in">
+          <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-center">Yang Sudah Saya Pelajari</h2>
+          <p className="text-gray-400 text-center max-w-2xl mb-12">
+            Berikut beberapa teknologi dan tools yang sering saya gunakan dalam proses pengembangan web.
+          </p>
+          <div className="relative w-full max-w-7xl overflow-hidden">
+            <div className="absolute top-0 left-0 w-1/6 h-full bg-gradient-to-r from-gray-900/0 to-transparent z-10 pointer-events-none"></div>
+            <div className="absolute top-0 right-0 w-1/6 h-full bg-gradient-to-l from-gray-900/0 to-transparent z-10 pointer-events-none"></div>
+            <div className="scroll-track flex gap-8 w-max p-4">
+              {[ ...[ { name: "HTML", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" }, { name: "CSS", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" }, { name: "JavaScript", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" }, { name: "TypeScript", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" }, { name: "React", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" }, { name: "Next.js", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original-wordmark.svg" }, { name: "Tailwind CSS", img: "https://www.vectorlogo.zone/logos/tailwindcss/tailwindcss-icon.svg" }, { name: "MySQL", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original-wordmark.svg" }, { name: "Node.js", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original-wordmark.svg" }, { name: "Vue.js", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg" }, { name: "PHP", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" }, { name: "Laravel", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-original.svg" }, { name: "Laragon", img: "skils/laragon-removebg-preview.png" }, { name: "Git", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" }, { name: "GitHub", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" }, { name: "Figma", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" }, { name: "Canva", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/canva/canva-original.svg" },], ...[ /* duplikat sama */ ] ].map((skill, i) => (
+                <div key={i} className="skill-card-wrapper flex-shrink-0 w-32 h-32">
+                  <div className="group bg-gray-800/50 backdrop-blur-md border border-gray-700/50 rounded-xl shadow-lg transition-all duration-300 h-full flex flex-col items-center justify-center">
+                    <img src={skill.img} alt={skill.name} className="w-14 h-14 object-contain mb-2 transition-transform duration-300 group-hover:scale-110" />
+                    <p className="text-gray-300 text-xs font-medium">{skill.name}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <style>{`
+              .scroll-track { animation: scroll 40s linear infinite; }
+              @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+            `}</style>
+          </div>
+        </section>
+
+        {/* PROJECTS */}
+<section id="projects" className="w-full bg-black/20 flex flex-col items-center justify-center py-24 fade-in">
+  <div className="w-full max-w-7xl px-6">
+    <h2 className="text-4xl font-bold mb-4 text-center sm:text-left">Projek Saya</h2>
+    <p className="text-gray-400 text-center sm:text-left mb-12">
+      Beberapa projek yang pernah saya kerjakan.
+    </p>
+
+    <Splide
+      options={{
+        type: 'loop',
+        perPage: 2,
+        gap: '1.5rem',
+        breakpoints: { 768: { perPage: 1 } },
+      }}
+      className="w-full"
+    >
+      {[
+        {
+          title: "Aplikasi Beasiswa",
+          desc: "Website pendaftaran beasiswa berbasis Laravel.",
+          img: "projects/img-beasiswa.png",
+          link: "https://github.com/farras2121/beasiswa-bnsp",
+          type: "landscape"
+        },
+        {
+          title: "Hotel Booking App",
+          desc: "Website pemesanan kamar hotel Laravel.",
+          img: "projects/img-hotel.png",
+          link: "https://github.com/farras2121/bnsp-hotel",
+          type: "landscape"
+        },
+        {
+          title: "E-Perpustakaan Website",
+          desc: "Website perpustakaan multi-role login.",
+          img: "projects/img-perpus.png",
+          link: "https://github.com/farras2121/library-management-rpl1",
+          type: "landscape"
+        },
+        {
+          title: "Website Pengaduan Siswa",
+          desc: "Website pengaduan siswa Laravel.",
+          img: "projects/img-pengaduansiswa.png",
+          link: "https://github.com/farras2121/pengaduanSiswaRpl",
+          type: "landscape"
+        },
+        {
+          title: "App Vidio Clone",
+          desc: "Clone aplikasi Vidio pakai React.js.",
+          img: "projects/img-vidio.png",
+          link: "https://github.com/farras2121/App-Vidio",
+          type: "portrait"
+        },
+        {
+          title: "App Jaki Clone",
+          desc: "Clone aplikasi Jaki pakai React.js.",
+          img: "projects/img-jaki.png",
+          link: "https://github.com/farras2121/App-Jaki",
+          type: "portrait"
+        },
+      ].map((project) => (
+        <SplideSlide key={project.title}>
+          <div className="bg-gray-900/70 border border-gray-700 rounded-2xl overflow-hidden shadow-xl flex flex-col h-full">
+            <img
+              src={project.img}
+              alt={project.title}
+              className={`w-full object-cover transition-transform duration-500 hover:scale-105 ${
+                project.type === "portrait" ? "h-[500px] object-contain" : "aspect-video"
+              }`}
+            />
+            <div className="p-6 flex flex-col flex-grow">
+              <h3 className="text-xl font-semibold mb-3">{project.title}</h3>
+              <p className="text-gray-300 text-sm mb-5 flex-grow">{project.desc}</p>
+              <a
+                href={project.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="self-start bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-lg text-sm font-medium"
+              >
+                Lihat Project
+              </a>
+            </div>
+          </div>
+        </SplideSlide>
+      ))}
+    </Splide>
+  </div>
+</section>
+
+
+        {/* SERTIFIKAT */}
+        <section id="sertifikat" className="w-full flex flex-col items-center justify-center py-24 fade-in">
+          <h2 className="text-4xl font-bold mb-6 text-center text-blue-400">Sertifikat Saya</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 px-6 w-full max-w-7xl">
+            {["projects/sertikom11.png", "projects/sertikom2024.png"].map((cert, i) => (
+              <div key={i} className="overflow-hidden rounded-xl cursor-pointer">
+                <img src={cert} alt={`Sertifikat ${i + 1}`} className="w-full h-full object-cover hover:scale-105 transition-transform" />
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* FOOTER */}
+        <footer className="w-full text-gray-300 pt-16">
+          <div className="max-w-6xl mx-auto text-center border-t border-gray-800 py-6">
+            <p className="text-gray-500 text-sm">
+              © {new Date().getFullYear()} <span className="font-medium text-gray-300">Farras Ghalyandra</span>. All Rights Reserved.
+            </p>
+          </div>
+        </footer>
+      </main>
+    </>
+  );
+}  
