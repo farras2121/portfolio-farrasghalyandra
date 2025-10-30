@@ -80,6 +80,21 @@ export default function Home() {
         nav {
           transition: background-color 0.5s ease, padding 0.3s ease;
         }
+
+        @keyframes slideDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.animate-slideDown {
+  animation: slideDown 0.3s ease forwards;
+}
+
       `}</style>
 
       <main
@@ -101,6 +116,31 @@ export default function Home() {
             >
               {isMenuOpen ? "✕" : "☰"}
             </button>
+
+{/* MENU MOBILE */}
+{isMenuOpen && (
+  <div
+    className="absolute top-full left-0 w-full bg-gray-900/90 flex flex-col items-center py-6 sm:hidden border-t border-gray-700 animate-slideDown"
+  >
+    {[
+      { name: "Home", href: "#home" },
+      { name: "Tentang", href: "#about" },
+      { name: "Skill", href: "#skills" },
+      { name: "Projek", href: "#projects" },
+      { name: "Sertifikat", href: "#sertifikat" },
+    ].map((item) => (
+      <a
+        key={item.name}
+        href={item.href}
+        onClick={() => setIsMenuOpen(false)}
+        className="w-full text-center py-3 text-gray-300 hover:text-blue-400 border-b border-gray-800 transition"
+      >
+        {item.name}
+      </a>
+    ))}
+  </div>
+)}
+
             <div className={`hidden sm:flex gap-6 text-gray-300 text-sm ${isScrolled ? "opacity-100" : "opacity-0 pointer-events-none"}`}>
               {[{ name: "Home", href: "#home" }, { name: "Tentang", href: "#about" }, { name: "Skill", href: "#skills" }, { name: "Projek", href: "#projects" }, { name: "Sertifikat", href: "#sertifikat" }]
                 .map((item) => (
