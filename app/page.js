@@ -226,6 +226,13 @@ export default function Home() {
     >
       {[
         {
+          title: "Travel Website",
+          desc: "Website pemesanan paket wisata berbasis Laravel.",
+          img: "projects/img-travel.png",
+          link: "https://github.com/farras2121/BNSP-Travel.git",
+          type: "landscape"
+        },
+        {
           title: "Aplikasi Beasiswa",
           desc: "Website pendaftaran beasiswa berbasis Laravel.",
           img: "projects/img-beasiswa.png",
