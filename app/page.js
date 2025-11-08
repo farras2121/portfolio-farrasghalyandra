@@ -102,7 +102,7 @@ export default function Home() {
         style={{
           background: `radial-gradient(600px at ${mousePosition.x}px ${mousePosition.y}px, rgba(45, 84, 178, 0.15), transparent 80%)`,
         }}
-      >
+      > 
 
         {/* NAVBAR */}
         <nav className="fixed top-0 left-0 w-full bg-gray-900/50 backdrop-blur-lg z-50 border-b border-gray-800 shadow-lg transition-all duration-300">
