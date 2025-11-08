@@ -229,49 +229,52 @@ export default function Home() {
           title: "Travel Website",
           desc: "Website pemesanan paket wisata berbasis Laravel.",
           img: "projects/img-travel.png",
-          link: "https://github.com/farras2121/BNSP-Travel.git",
+          github: "https://github.com/farras2121/BNSP-Travel.git",
+          linkedin: "https://www.linkedin.com/posts/farras-ghalyandra-644304387_website-travel-berbasis-laravel-yang-dirancang-activity-7392913554615496704-127X?utm_source=share&utm_medium=member_desktop&rcm=ACoAAF9DcpQBrXQKDbn1bGpsCaKH80KlGVPBcz4",
           type: "landscape"
         },
         {
           title: "Aplikasi Beasiswa",
           desc: "Website pendaftaran beasiswa berbasis Laravel.",
           img: "projects/img-beasiswa.png",
-          link: "https://github.com/farras2121/beasiswa-bnsp",
+          github: "https://github.com/farras2121/beasiswa-bnsp",
+          linkedin:"https://www.linkedin.com/posts/farras-ghalyandra-644304387_scholarship-website-is-a-web-based-scholarship-activity-7384927241261989888-0hm5?utm_source=share&utm_medium=member_desktop&rcm=ACoAAF9DcpQBrXQKDbn1bGpsCaKH80KlGVPBcz4",
           type: "landscape"
         },
         {
           title: "Hotel Booking App",
           desc: "Website pemesanan kamar hotel Laravel.",
           img: "projects/img-hotel.png",
-          link: "https://github.com/farras2121/bnsp-hotel",
+          github: "https://github.com/farras2121/bnsp-hotel",
+          linkedin: "https://www.linkedin.com/posts/farras-ghalyandra-644304387_hotel-website-is-a-web-based-hotel-booking-activity-7384563766392143872-Qmxf?utm_source=share&utm_medium=member_desktop&rcm=ACoAAF9DcpQBrXQKDbn1bGpsCaKH80KlGVPBcz4",
           type: "landscape"
         },
         {
           title: "E-Perpustakaan Website",
           desc: "Website perpustakaan multi-role login.",
           img: "projects/img-perpus.png",
-          link: "https://github.com/farras2121/library-management-rpl1",
+          github: "https://github.com/farras2121/library-management-rpl1",
           type: "landscape"
         },
         {
           title: "Website Pengaduan Siswa",
           desc: "Website pengaduan siswa Laravel.",
           img: "projects/img-pengaduansiswa.png",
-          link: "https://github.com/farras2121/pengaduanSiswaRpl",
+          github: "https://github.com/farras2121/pengaduanSiswaRpl",
           type: "landscape"
         },
         {
           title: "App Vidio Clone",
           desc: "Clone aplikasi Vidio pakai React.js.",
           img: "projects/img-vidio.png",
-          link: "https://github.com/farras2121/App-Vidio",
+          github: "https://github.com/farras2121/App-Vidio",
           type: "portrait"
         },
         {
           title: "App Jaki Clone",
           desc: "Clone aplikasi Jaki pakai React.js.",
           img: "projects/img-jaki.png",
-          link: "https://github.com/farras2121/App-Jaki",
+          github: "https://github.com/farras2121/App-Jaki",
           type: "portrait"
         },
       ].map((project) => (
@@ -287,14 +290,29 @@ export default function Home() {
             <div className="p-6 flex flex-col flex-grow">
               <h3 className="text-xl font-semibold mb-3">{project.title}</h3>
               <p className="text-gray-300 text-sm mb-5 flex-grow">{project.desc}</p>
-              <a
-                href={project.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="self-start bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-lg text-sm font-medium"
-              >
-                Lihat Project
-              </a>
+              <div className="flex flex-wrap gap-3 mt-auto">
+                <a
+                  href={project.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-purple-600 hover:bg-purple-700 text-white px-5 py-2 rounded-lg text-sm font-medium transition-transform hover:scale-105"
+                >
+                  Lihat Github
+                </a>
+
+                {project.linkedin && (
+                  <a
+                    href={project.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="bg-blue-500 hover:bg-blue-600 text-white px-5 py-2 rounded-lg text-sm font-medium transition-transform hover:scale-105"
+                >
+                    Lihat LinkedIn
+                  </a>
+                )}
+              </div>
+
+
             </div>
           </div>
         </SplideSlide>
