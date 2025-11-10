@@ -254,6 +254,7 @@ export default function Home() {
           desc: "Website perpustakaan multi-role login.",
           img: "projects/img-perpus.png",
           github: "https://github.com/farras2121/library-management-rpl1",
+          linkedin: "https://www.linkedin.com/posts/farras-ghalyandra-644304387_saya-mengembangkan-e-perpustakaan-sebuah-activity-7393616562814881792--8Zp?utm_source=share&utm_medium=member_desktop&rcm=ACoAAF9DcpQBrXQKDbn1bGpsCaKH80KlGVPBcz4",
           type: "landscape"
         },
         {
@@ -261,6 +262,7 @@ export default function Home() {
           desc: "Website pengaduan siswa Laravel.",
           img: "projects/img-pengaduansiswa.png",
           github: "https://github.com/farras2121/pengaduanSiswaRpl",
+          linkedin: "https://www.linkedin.com/posts/farras-ghalyandra-644304387_saya-mengembangkan-website-pengaduan-siswa-activity-7393614970380365824-K4tR?utm_source=share&utm_medium=member_desktop&rcm=ACoAAF9DcpQBrXQKDbn1bGpsCaKH80KlGVPBcz4",
           type: "landscape"
         },
         {

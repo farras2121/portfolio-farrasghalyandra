@@ -25,17 +25,7 @@ export default function RootLayout({ children }) {
       >
         {children}
 
-        {/* === Tambahkan ini di bawah semua konten === */}
-        <a
-          href="#home"
-          className="fixed bottom-4 left-4 flex items-center justify-center w-10 h-10 bg-white rounded-full shadow-lg hover:scale-105 transition-transform"
-        >
-          <img
-            src="/skils/logo-farras.png"
-            alt="Logo Farras"
-            className="w-6 h-6 object-contain"
-          />
-        </a>
+        
       </body>
     </html>
   );
