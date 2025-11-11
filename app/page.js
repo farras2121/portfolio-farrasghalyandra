@@ -115,10 +115,10 @@ export default function Home() {
   >
     {[
       { name: "Home", href: "#home" },
-      { name: "Tentang", href: "#about" },
-      { name: "Skill", href: "#skills" },
-      { name: "Projek", href: "#projects" },
-      { name: "Sertifikat", href: "#sertifikat" },
+      { name: "About", href: "#about" },
+      { name: "Skills", href: "#skills" },
+      { name: "Projects", href: "#projects" },
+      { name: "certificate", href: "#sertifikat" },
     ].map((item) => (
       <a
         key={item.name}
@@ -133,7 +133,7 @@ export default function Home() {
 )}
 
             <div className={`hidden sm:flex gap-6 text-gray-300 text-sm ${isScrolled ? "opacity-100" : "opacity-0 pointer-events-none"}`}>
-              {[{ name: "Home", href: "#home" }, { name: "Tentang", href: "#about" }, { name: "Skill", href: "#skills" }, { name: "Projek", href: "#projects" }, { name: "Sertifikat", href: "#sertifikat" }]
+              {[{ name: "Home", href: "#home" }, { name: "About", href: "#about" }, { name: "Skills", href: "#skills" }, { name: "Projects", href: "#projects" }, { name: "certificate", href: "#sertifikat" }]
                 .map((item) => (
                   <a key={item.name} href={item.href} className="hover:text-blue-400 transition">{item.name}</a>
                 ))}
@@ -149,19 +149,19 @@ export default function Home() {
             </span>
           </h1>
           <a href="#projects" className="mt-8 px-8 py-3 bg-blue-600 hover:bg-blue-700 rounded-full font-semibold text-base transition-transform hover:scale-105">
-            Lihat Project Saya
+            Show My Projects
           </a>
         </section>
 
         {/* ABOUT */}
         <section id="about" className="w-full bg-black/20 flex flex-col md:flex-row items-center justify-center gap-10 px-6 py-24 fade-in">
           <div className="md:w-1/2 text-center md:text-left">
-            <h2 className="text-4xl font-bold mb-6 text-blue-400">Tentang Saya</h2>
+            <h2 className="text-4xl font-bold mb-6 text-blue-400">About Me</h2>
             <p className="text-gray-300 mb-4">
-              Saya seorang <span className="text-white font-semibold">web developer</span> fokus pada front-end dan back-end. Suka membuat tampilan website modern dan interaktif.
+              I am a <span className="text-white font-semibold">web developer</span> Focus on both front-end and back-end. Enjoy creating modern and interactive websites.
             </p>
             <p className="text-gray-400">
-              Berpengalaman dengan <span className="text-white">React</span>, <span className="text-white">Next.js</span>, dan <span className="text-white">Laravel</span>.
+              Experienced with <span className="text-white">React</span>, <span className="text-white">Next.js</span>, and <span className="text-white">Laravel</span>.
             </p>
           </div>
           <div className="md:w-1/2 flex justify-center">
@@ -174,9 +174,9 @@ export default function Home() {
 
         {/* SKILLS */}
         <section id="skills" className="w-full text-white flex flex-col items-center justify-center px-6 py-24 fade-in">
-          <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-center">Yang Sudah Saya Pelajari</h2>
+          <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-center">What I Have Learned</h2>
           <p className="text-gray-400 text-center max-w-2xl mb-12">
-            Berikut beberapa teknologi dan tools yang sering saya gunakan dalam proses pengembangan web.
+            Here are some technologies and tools that I frequently use in the web development process.
           </p>
           <div className="relative w-full max-w-7xl overflow-hidden">
             <div className="absolute top-0 left-0 w-1/6 h-full bg-gradient-to-r from-gray-900/0 to-transparent z-10 pointer-events-none"></div>
@@ -201,9 +201,9 @@ export default function Home() {
         {/* PROJECTS */}
 <section id="projects" className="w-full bg-black/20 flex flex-col items-center justify-center py-24 fade-in">
   <div className="w-full max-w-7xl px-6">
-    <h2 className="text-4xl font-bold mb-4 text-center sm:text-left">Projek Saya</h2>
+    <h2 className="text-4xl font-bold mb-4 text-center sm:text-left">My Projects</h2>
     <p className="text-gray-400 text-center sm:text-left mb-12">
-      Beberapa projek yang pernah saya kerjakan.
+     Some of the projects I have worked on.
     </p>
 
     <Splide
@@ -218,15 +218,15 @@ export default function Home() {
       {[
         {
           title: "Travel Website",
-          desc: "Website pemesanan paket wisata berbasis Laravel.",
+          desc: "Laravel-based tour package booking website.",
           img: "projects/img-travel.png",
           github: "https://github.com/farras2121/BNSP-Travel.git",
           linkedin: "https://www.linkedin.com/posts/farras-ghalyandra-644304387_website-travel-berbasis-laravel-yang-dirancang-activity-7392913554615496704-127X?utm_source=share&utm_medium=member_desktop&rcm=ACoAAF9DcpQBrXQKDbn1bGpsCaKH80KlGVPBcz4",
           type: "landscape"
         },
         {
-          title: "Aplikasi Beasiswa",
-          desc: "Website pendaftaran beasiswa berbasis Laravel.",
+          title: "Scholarship Application Website",
+          desc: "Laravel-based scholarship registration website.",
           img: "projects/img-beasiswa.png",
           github: "https://github.com/farras2121/beasiswa-bnsp",
           linkedin:"https://www.linkedin.com/posts/farras-ghalyandra-644304387_scholarship-website-is-a-web-based-scholarship-activity-7384927241261989888-0hm5?utm_source=share&utm_medium=member_desktop&rcm=ACoAAF9DcpQBrXQKDbn1bGpsCaKH80KlGVPBcz4",
@@ -234,23 +234,23 @@ export default function Home() {
         },
         {
           title: "Hotel Booking App",
-          desc: "Website pemesanan kamar hotel Laravel.",
+          desc: "Laravel-based hotel room booking website.",
           img: "projects/img-hotel.png",
           github: "https://github.com/farras2121/bnsp-hotel",
           linkedin: "https://www.linkedin.com/posts/farras-ghalyandra-644304387_hotel-website-is-a-web-based-hotel-booking-activity-7384563766392143872-Qmxf?utm_source=share&utm_medium=member_desktop&rcm=ACoAAF9DcpQBrXQKDbn1bGpsCaKH80KlGVPBcz4",
           type: "landscape"
         },
         {
-          title: "E-Perpustakaan Website",
-          desc: "Website perpustakaan multi-role login.",
+          title: "E-Library Website",
+          desc: "Multi-role login library website.",
           img: "projects/img-perpus.png",
           github: "https://github.com/farras2121/library-management-rpl1",
           linkedin: "https://www.linkedin.com/posts/farras-ghalyandra-644304387_saya-mengembangkan-e-perpustakaan-sebuah-activity-7393616562814881792--8Zp?utm_source=share&utm_medium=member_desktop&rcm=ACoAAF9DcpQBrXQKDbn1bGpsCaKH80KlGVPBcz4",
           type: "landscape"
         },
         {
-          title: "Website Pengaduan Siswa",
-          desc: "Website pengaduan siswa Laravel.",
+          title: "Student Complaints Website",
+          desc: "Laravel-based student complaint website.",
           img: "projects/img-pengaduansiswa.png",
           github: "https://github.com/farras2121/pengaduanSiswaRpl",
           linkedin: "https://www.linkedin.com/posts/farras-ghalyandra-644304387_saya-mengembangkan-website-pengaduan-siswa-activity-7393614970380365824-K4tR?utm_source=share&utm_medium=member_desktop&rcm=ACoAAF9DcpQBrXQKDbn1bGpsCaKH80KlGVPBcz4",
@@ -258,14 +258,14 @@ export default function Home() {
         },
         {
           title: "App Vidio Clone",
-          desc: "Clone aplikasi Vidio pakai React.js.",
+          desc: "Clone the Vidio application using React.js.",
           img: "projects/img-vidio.png",
           github: "https://github.com/farras2121/App-Vidio",
           type: "portrait"
         },
         {
           title: "App Jaki Clone",
-          desc: "Clone aplikasi Jaki pakai React.js.",
+          desc: "Clone the Jaki application using React.js.",
           img: "projects/img-jaki.png",
           github: "https://github.com/farras2121/App-Jaki",
           type: "portrait"
@@ -290,7 +290,7 @@ export default function Home() {
                   rel="noopener noreferrer"
                   className="bg-purple-600 hover:bg-purple-700 text-white px-5 py-2 rounded-lg text-sm font-medium transition-transform hover:scale-105"
                 >
-                  Lihat Github
+                  Show Github
                 </a>
 
                 {project.linkedin && (
@@ -300,7 +300,7 @@ export default function Home() {
                     rel="noopener noreferrer"
                     className="bg-blue-500 hover:bg-blue-600 text-white px-5 py-2 rounded-lg text-sm font-medium transition-transform hover:scale-105"
                 >
-                    Lihat LinkedIn
+                    Show LinkedIn
                   </a>
                 )}
               </div>
@@ -317,7 +317,7 @@ export default function Home() {
 
         {/* ==== SERTIFIKAT ==== */}
         <section id="sertifikat" className="w-full flex flex-col items-center justify-center py-24 fade-in">
-          <h2 className="text-4xl font-bold mb-6 text-center text-blue-400">Sertifikat Saya</h2>
+          <h2 className="text-4xl font-bold mb-6 text-center text-blue-400">My certificate</h2>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 px-6 w-full max-w-7xl">
             {[
@@ -372,8 +372,8 @@ export default function Home() {
         {/* ===== FOOTER ===== */} 
         <footer className="w-full text-gray-300 pt-16 relative"> 
           <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-blue-500 to-transparent"></div> <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-start gap-8 px-6 text-center md:text-left"> <div className="md:w-1/2"> <h3 className="text-2xl font-semibold mb-2 text-white">
-            Tetap Terhubung</h3> 
-            <p className="text-gray-400 mb-4"> Saya selalu terbuka untuk peluang baru, kolaborasi, atau sekadar ngobrol tentang teknologi. </p> </div> 
+            Stay Connected</h3> 
+            <p className="text-gray-400 mb-4"> I'm always open to new opportunities, collaborations, or just chatting about technology.</p> </div> 
             <div className="flex flex-row items-center gap-4 mx-auto md:mx-0 mt-8 md:mt-0"> 
               {[ { href: "https://github.com/farras2121", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg", alt: "GitHub" }, 
               { href: "https://www.linkedin.com/in/farras-ghalyandra-644304387/", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg", alt: "LinkedIn" }, 
