@@ -2,11 +2,13 @@
 import { useEffect, useState } from "react";
 import '@splidejs/react-splide/css';
 import { Splide, SplideSlide } from '@splidejs/react-splide';
+import Image from "next/image";
 
 export default function Home() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [flippedIndex, setFlippedIndex] = useState(null); // buat animasi flip sertifikat
 
   useEffect(() => {
     const links = document.querySelectorAll('a[href^="#"]');
@@ -76,25 +78,14 @@ export default function Home() {
           box-shadow: 0 0 25px rgba(59, 130, 246, 0.3);
         }
 
-        /* Navbar smooth animation */
         nav {
           transition: background-color 0.5s ease, padding 0.3s ease;
         }
-
         @keyframes slideDown {
-  0% {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-.animate-slideDown {
-  animation: slideDown 0.3s ease forwards;
-}
-
+          0% { opacity: 0; transform: translateY(-10px); }
+          100% { opacity: 1; transform: translateY(0); }
+        }
+        .animate-slideDown { animation: slideDown 0.3s ease forwards; }
       `}</style>
 
       <main
@@ -102,7 +93,7 @@ export default function Home() {
         style={{
           background: `radial-gradient(600px at ${mousePosition.x}px ${mousePosition.y}px, rgba(45, 84, 178, 0.15), transparent 80%)`,
         }}
-      > 
+      >
 
         {/* NAVBAR */}
         <nav className="fixed top-0 left-0 w-full bg-gray-900/50 backdrop-blur-lg z-50 border-b border-gray-800 shadow-lg transition-all duration-300">
@@ -324,13 +315,55 @@ export default function Home() {
 </section>
 
 
-        {/* SERTIFIKAT */}
+        {/* ==== SERTIFIKAT ==== */}
         <section id="sertifikat" className="w-full flex flex-col items-center justify-center py-24 fade-in">
           <h2 className="text-4xl font-bold mb-6 text-center text-blue-400">Sertifikat Saya</h2>
+
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 px-6 w-full max-w-7xl">
-            {["projects/sertikom11.png", "projects/sertikom2024.png"].map((cert, i) => (
-              <div key={i} className="overflow-hidden rounded-xl cursor-pointer">
-                <img src={cert} alt={`Sertifikat ${i + 1}`} className="w-full h-full object-cover hover:scale-105 transition-transform" />
+            {[
+              {
+                front: "/projects/sertikom11.png",
+                back: "/projects/NilaiSertikomKelas11-2.png",
+              },
+              {
+                front: "/projects/sertikom2024.png",
+                back: "/projects/NilaiSertikom2024 (2).png",
+              },
+              {
+                front: "/projects/sertikomdes24.png",
+                back: "/projects/nilaisertikom-des2024.png",
+              },
+            ].map((cert, i) => (
+              <div
+                key={i}
+                onClick={() => setFlippedIndex(flippedIndex === i ? null : i)}
+                className="relative w-full aspect-[4/3] cursor-pointer [perspective:1000px]"
+              >
+                <div
+                  className={`relative w-full h-full transition-transform duration-700 [transform-style:preserve-3d] ${
+                    flippedIndex === i ? "[transform:rotateY(180deg)]" : ""
+                  }`}
+                >
+                  {/* Depan */}
+                  <div className="absolute w-full h-full rounded-xl overflow-hidden shadow-lg [backface-visibility:hidden]">
+                    <Image
+                      src={cert.front}
+                      alt={`Sertifikat ${i + 1}`}
+                      fill
+                      className="object-cover rounded-xl"
+                    />
+                  </div>
+
+                  {/* Belakang */}
+                  <div className="absolute w-full h-full rounded-xl overflow-hidden shadow-lg [backface-visibility:hidden] [transform:rotateY(180deg)]">
+                    <Image
+                      src={cert.back}
+                      alt={`Sertifikat ${i + 1} (belakang)`}
+                      fill
+                      className="object-cover rounded-xl"
+                    />
+                  </div>
+                </div>
               </div>
             ))}
           </div>
