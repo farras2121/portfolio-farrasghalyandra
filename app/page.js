@@ -373,7 +373,10 @@ export default function Home() {
         <footer className="w-full text-gray-300 pt-16 relative"> 
           <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-blue-500 to-transparent"></div> <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-start gap-8 px-6 text-center md:text-left"> <div className="md:w-1/2"> <h3 className="text-2xl font-semibold mb-2 text-white">
             Stay Connected</h3> 
-            <p className="text-gray-400 mb-4"> I'm always open to new opportunities, collaborations, or just chatting about technology.</p> </div> 
+            <p className="text-gray-400 mb-4">
+  {"I'm always open to new opportunities, collaborations, or just chatting about technology."}
+</p>
+ </div> 
             <div className="flex flex-row items-center gap-4 mx-auto md:mx-0 mt-8 md:mt-0"> 
               {[ { href: "https://github.com/farras2121", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg", alt: "GitHub" }, 
               { href: "https://www.linkedin.com/in/farras-ghalyandra-644304387/", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg", alt: "LinkedIn" }, 
