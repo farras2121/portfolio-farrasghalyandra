@@ -116,10 +116,10 @@ export default function Home() {
   >
     {[
       { name: "Home", href: "#home" },
-      { name: "About", href: "#about" },
+      { name: "Tentang", href: "#about" },
       { name: "Skills", href: "#skills" },
-      { name: "Projects", href: "#projects" },
-      { name: "Certificate", href: "#sertifikat" },
+      { name: "Projek", href: "#projects" },
+      { name: "Sertifikat", href: "#sertifikat" },
     ].map((item) => (
       <a
         key={item.name}
@@ -134,7 +134,7 @@ export default function Home() {
 )}
 
             <div className={`hidden sm:flex gap-6 text-gray-300 text-sm ${isScrolled ? "opacity-100" : "opacity-0 pointer-events-none"}`}>
-              {[{ name: "Home", href: "#home" }, { name: "About", href: "#about" }, { name: "Skills", href: "#skills" }, { name: "Projects", href: "#projects" }, { name: "Certificate", href: "#sertifikat" }]
+              {[{ name: "Home", href: "#home" }, { name: "Tentang", href: "#about" }, { name: "Skills", href: "#skills" }, { name: "Projek", href: "#projects" }, { name: "Sertifikat", href: "#sertifikat" }]
                 .map((item) => (
                   <a key={item.name} href={item.href} className="hover:text-blue-400 transition">{item.name}</a>
                 ))}
