@@ -8,6 +8,7 @@ export default function Home() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [zoomImage, setZoomImage] = useState(null); // khusus portrait zoom
   const [flippedIndex, setFlippedIndex] = useState(null); // buat animasi flip sertifikat
 
   useEffect(() => {
@@ -149,19 +150,19 @@ export default function Home() {
             </span>
           </h1>
           <a href="#projects" className="mt-8 px-8 py-3 bg-blue-600 hover:bg-blue-700 rounded-full font-semibold text-base transition-transform hover:scale-105">
-            Show My Projects
+            Lihat Projek Saya
           </a>
         </section>
 
         {/* ABOUT */}
         <section id="about" className="w-full bg-black/20 flex flex-col md:flex-row items-center justify-center gap-10 px-6 py-24 fade-in">
           <div className="md:w-1/2 text-center md:text-left">
-            <h2 className="text-4xl font-bold mb-6 text-blue-400">About Me</h2>
+            <h2 className="text-4xl font-bold mb-6 text-blue-400">Tentang Saya</h2>
             <p className="text-gray-300 mb-4">
-              I am a <span className="text-white font-semibold">web developer</span> Focus on both front-end and back-end. Enjoy creating modern and interactive websites.
+              Saya Adalah <span className="text-white font-semibold">web developer</span> Fokus pada Front-End dan Back-End. Nikmati Pembuatan Website Modern dan Interaktif.
             </p>
             <p className="text-gray-400">
-              Experienced with <span className="text-white">React</span>, <span className="text-white">Next.js</span>, and <span className="text-white">Laravel</span>.
+              Berpengalaman Menggunakan <span className="text-white">React</span>, <span className="text-white">Next.js</span>, and <span className="text-white">Laravel</span>.
             </p>
           </div>
           <div className="md:w-1/2 flex justify-center">
@@ -174,9 +175,9 @@ export default function Home() {
 
         {/* SKILLS */}
         <section id="skills" className="w-full text-white flex flex-col items-center justify-center px-6 py-24 fade-in">
-          <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-center">What I Have Learned</h2>
+          <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-center">yang Telah Saya Pelajari</h2>
           <p className="text-gray-400 text-center max-w-2xl mb-12">
-            Here are some technologies and tools that I frequently use in the web development process.
+            Berikut adalah beberapa teknologi dan alat yang sering saya gunakan dalam proses pengembangan web.
           </p>
           <div className="relative w-full max-w-7xl overflow-hidden">
             <div className="absolute top-0 left-0 w-1/6 h-full bg-gradient-to-r from-gray-900/0 to-transparent z-10 pointer-events-none"></div>
@@ -201,9 +202,9 @@ export default function Home() {
         {/* PROJECTS */}
 <section id="projects" className="w-full bg-black/20 flex flex-col items-center justify-center py-24 fade-in">
   <div className="w-full max-w-7xl px-6">
-    <h2 className="text-4xl font-bold mb-4 text-center sm:text-left">My Projects</h2>
+    <h2 className="text-4xl font-bold mb-4 text-center sm:text-left">Projek Saya</h2>
     <p className="text-gray-400 text-center sm:text-left mb-12">
-     Some of the projects I have worked on.
+     Projek Yang Pernah Saya Kerjakan
     </p>
 
     <Splide
@@ -234,23 +235,23 @@ export default function Home() {
         },
         {
           title: "Hotel Booking App",
-          desc: "Laravel-based hotel room booking website.",
+          desc: "Website Hotel Berbasis Laravel.",
           img: "projects/img-hotel.png",
           github: "https://github.com/farras2121/bnsp-hotel",
           linkedin: "https://www.linkedin.com/posts/farras-ghalyandra-644304387_hotel-website-is-a-web-based-hotel-booking-activity-7384563766392143872-Qmxf?utm_source=share&utm_medium=member_desktop&rcm=ACoAAF9DcpQBrXQKDbn1bGpsCaKH80KlGVPBcz4",
           type: "landscape"
         },
         {
-          title: "E-Library Website",
-          desc: "Multi-role login library website.",
+          title: "Website E-Perpustakaan",
+          desc: "Situs web perpustakaan login multiperan.",
           img: "projects/img-perpus.png",
           github: "https://github.com/farras2121/library-management-rpl1",
           linkedin: "https://www.linkedin.com/posts/farras-ghalyandra-644304387_saya-mengembangkan-e-perpustakaan-sebuah-activity-7393616562814881792--8Zp?utm_source=share&utm_medium=member_desktop&rcm=ACoAAF9DcpQBrXQKDbn1bGpsCaKH80KlGVPBcz4",
           type: "landscape"
         },
         {
-          title: "Student Complaints Website",
-          desc: "Laravel-based student complaint website.",
+          title: "Website Pengaduan Siswa",
+          desc: "Website pengaduan siswa berbasis Laravel.",
           img: "projects/img-pengaduansiswa.png",
           github: "https://github.com/farras2121/pengaduanSiswaRpl",
           linkedin: "https://www.linkedin.com/posts/farras-ghalyandra-644304387_saya-mengembangkan-website-pengaduan-siswa-activity-7393614970380365824-K4tR?utm_source=share&utm_medium=member_desktop&rcm=ACoAAF9DcpQBrXQKDbn1bGpsCaKH80KlGVPBcz4",
@@ -258,14 +259,14 @@ export default function Home() {
         },
         {
           title: "App Vidio Clone",
-          desc: "Clone the Vidio application using React.js.",
+          desc: "App Vidio Clone menggunakan React.js.",
           img: "projects/img-vidio.png",
           github: "https://github.com/farras2121/App-Vidio",
           type: "portrait"
         },
         {
           title: "App Jaki Clone",
-          desc: "Clone the Jaki application using React.js.",
+          desc: "App Jaki Clone menggunakan React.js.",
           img: "projects/img-jaki.png",
           github: "https://github.com/farras2121/App-Jaki",
           type: "portrait"
@@ -290,7 +291,7 @@ export default function Home() {
                   rel="noopener noreferrer"
                   className="bg-purple-600 hover:bg-purple-700 text-white px-5 py-2 rounded-lg text-sm font-medium transition-transform hover:scale-105"
                 >
-                  Show Github
+                  Lihat Github
                 </a>
 
                 {project.linkedin && (
@@ -300,7 +301,7 @@ export default function Home() {
                     rel="noopener noreferrer"
                     className="bg-blue-500 hover:bg-blue-600 text-white px-5 py-2 rounded-lg text-sm font-medium transition-transform hover:scale-105"
                 >
-                    Show LinkedIn
+                    Lihat LinkedIn
                   </a>
                 )}
               </div>
@@ -314,67 +315,100 @@ export default function Home() {
   </div>
 </section>
 
-
         {/* ==== SERTIFIKAT ==== */}
-        <section id="sertifikat" className="w-full flex flex-col items-center justify-center py-24 fade-in">
-          <h2 className="text-4xl font-bold mb-6 text-center text-blue-400">My certificate</h2>
+{/* ==== SERTIFIKAT ==== */}
+<section id="sertifikat" className="w-full flex flex-col items-center justify-center py-24 fade-in">
+  <h2 className="text-4xl font-bold mb-6 text-center text-blue-400">Sertifikat Saya</h2>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 px-6 w-full max-w-7xl">
-            {[
-              {
-                front: "/projects/sertikom11.png",
-                back: "/projects/NilaiSertikomKelas11-2.png",
-              },
-              {
-                front: "/projects/sertikom2024.png",
-                back: "/projects/NilaiSertikom2024 (2).png",
-              },
-              {
-                front: "/projects/sertikomdes24.png",
-                back: "/projects/nilaisertikom-des2024.png",
-              },
-            ].map((cert, i) => (
-              <div
-                key={i}
-                onClick={() => setFlippedIndex(flippedIndex === i ? null : i)}
-                className="relative w-full aspect-[4/3] cursor-pointer [perspective:1000px]"
-              >
-                <div
-                  className={`relative w-full h-full transition-transform duration-700 [transform-style:preserve-3d] ${
-                    flippedIndex === i ? "[transform:rotateY(180deg)]" : ""
-                  }`}
-                >
-                  {/* Depan */}
-                  <div className="absolute w-full h-full rounded-xl overflow-hidden shadow-lg [backface-visibility:hidden]">
-                    <Image
-                      src={cert.front}
-                      alt={`Sertifikat ${i + 1}`}
-                      fill
-                      className="object-cover rounded-xl"
-                    />
-                  </div>
-
-                  {/* Belakang */}
-                  <div className="absolute w-full h-full rounded-xl overflow-hidden shadow-lg [backface-visibility:hidden] [transform:rotateY(180deg)]">
-                    <Image
-                      src={cert.back}
-                      alt={`Sertifikat ${i + 1} (belakang)`}
-                      fill
-                      className="object-cover rounded-xl"
-                    />
-                  </div>
-                </div>
-              </div>
-            ))}
+  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 px-6 w-full max-w-7xl">
+    {[
+      {
+        front: "/projects/sertikom11.png",
+        back: "/projects/NilaiSertikomKelas11-2.png",
+      },
+      {
+        front: "/projects/sertikom2024.png",
+        back: "/projects/NilaiSertikom2024 (2).png",
+      },
+      {
+        front: "/projects/sertikomdes24.png",
+        back: "/projects/nilaisertikom-des2024.png",
+      },
+      {
+        front: "/projects/bnsp-sementara.png",
+        type: "portrait", // vertikal full zoom
+      },
+    ].map((cert, i) => (
+      <div
+        key={i}
+        onClick={() => {
+          if (cert.type === "portrait") {
+            setZoomImage(cert.front); // buka zoom
+          } else if (cert.back) {
+            setFlippedIndex(flippedIndex === i ? null : i); // flip landscape
+          }
+        }}
+        className={`relative w-full ${
+          cert.type === "portrait" ? "aspect-[3/4]" : "aspect-[4/3]"
+        } cursor-pointer [perspective:1000px]`}
+      >
+        <div
+          className={`relative w-full h-full transition-transform duration-700 [transform-style:preserve-3d] ${
+            flippedIndex === i ? "[transform:rotateY(180deg)]" : ""
+          }`}
+        >
+          {/* FRONT */}
+          <div className="absolute w-full h-full rounded-xl overflow-hidden shadow-lg [backface-visibility:hidden]">
+            <Image
+              src={cert.front}
+              alt={`Sertifikat ${i + 1}`}
+              fill
+              className="object-cover rounded-xl"
+            />
           </div>
-        </section>
+
+          {/* BACK — hanya landscape */}
+          {cert.back && (
+            <div className="absolute w-full h-full rounded-xl overflow-hidden shadow-lg [backface-visibility:hidden] [transform:rotateY(180deg)]">
+              <Image
+                src={cert.back}
+                alt={`Sertifikat ${i + 1} (belakang)`}
+                fill
+                className="object-cover rounded-xl"
+              />
+            </div>
+          )}
+        </div>
+      </div>
+    ))}
+  </div>
+</section>
+
+{/* ===== MODAL ZOOM KHUSUS PORTRAIT ===== */}
+{zoomImage && (
+  <div
+    className="fixed inset-0 bg-black/80 backdrop-blur-md z-[9999] flex items-center justify-center p-4 cursor-pointer"
+    onClick={() => setZoomImage(null)}
+  >
+    <div className="relative w-full max-w-3xl h-[90vh]">
+      <Image
+        src={zoomImage}
+        alt="Zoom Sertifikat"
+        fill
+        className="object-contain rounded-xl shadow-2xl"
+      />
+    </div>
+  </div>
+)}
+
+
 
         {/* ===== FOOTER ===== */} 
         <footer className="w-full text-gray-300 pt-16 relative"> 
           <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-blue-500 to-transparent"></div> <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-start gap-8 px-6 text-center md:text-left"> <div className="md:w-1/2"> <h3 className="text-2xl font-semibold mb-2 text-white">
-            Stay Connected</h3> 
+            Tetap Terhubung</h3> 
             <p className="text-gray-400 mb-4">
-  {"I'm always open to new opportunities, collaborations, or just chatting about technology."}
+  {"Saya selalu terbuka terhadap peluang baru, kolaborasi, atau sekadar mengobrol tentang teknologi."}
 </p>
  </div> 
             <div className="flex flex-row items-center gap-4 mx-auto md:mx-0 mt-8 md:mt-0"> 
@@ -382,4 +416,4 @@ export default function Home() {
               { href: "https://www.linkedin.com/in/farras-ghalyandra-644304387/", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg", alt: "LinkedIn" }, 
               { href: "mailto:ghalyandraf@gmail.com", img: "https://cdn-icons-png.flaticon.com/512/732/732200.png", alt: "Email" }, ].map((icon) => ( <a key={icon.alt} href={icon.href} target="_blank" rel="noopener noreferrer" className="group"> 
               <div className="w-12 h-12 rounded-full flex items-center justify-center bg-gray-800 hover:bg-blue-600 transition-all duration-300 shadow-lg transform hover:scale-110"> <img src={icon.img} alt={icon.alt} className="w-6 h-6 transition-all duration-300 group-hover:filter group-hover:invert" /> </div> </a> ))} </div> </div> 
-              <div className="mt-16 border-t border-gray-800 py-6 text-center w-full"> <p className="text-gray-500 text-sm"> © {new Date().getFullYear()}{" "} <span className="font-medium text-gray-300">Farras Ghalyandra</span>. All Rights Reserved. </p> </div> </footer> </main> </> ); }
+              <div className="mt-16 border-t border-gray-800 py-6 text-center w-full"> <p className="text-gray-500 text-sm"> © {new Date().getFullYear()}{" "} <span className="font-medium text-gray-300">Farras Ghalyandra</span> </p> </div> </footer> </main> </> ); }
