@@ -175,29 +175,70 @@ export default function Home() {
 
         {/* SKILLS */}
         <section id="skills" className="w-full text-white flex flex-col items-center justify-center px-6 py-24 fade-in">
-          <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-center">yang Telah Saya Pelajari</h2>
-          <p className="text-gray-400 text-center max-w-2xl mb-12">
-            Berikut adalah beberapa teknologi dan alat yang sering saya gunakan dalam proses pengembangan web.
-          </p>
-          <div className="relative w-full max-w-7xl overflow-hidden">
-            <div className="absolute top-0 left-0 w-1/6 h-full bg-gradient-to-r from-gray-900/0 to-transparent z-10 pointer-events-none"></div>
-            <div className="absolute top-0 right-0 w-1/6 h-full bg-gradient-to-l from-gray-900/0 to-transparent z-10 pointer-events-none"></div>
-            <div className="scroll-track flex gap-8 w-max p-4">
-              {[ ...[ { name: "HTML", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" }, { name: "CSS", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" }, { name: "JavaScript", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" }, { name: "TypeScript", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" }, { name: "React", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" }, { name: "Next.js", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original-wordmark.svg" }, { name: "Tailwind CSS", img: "https://www.vectorlogo.zone/logos/tailwindcss/tailwindcss-icon.svg" }, { name: "MySQL", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original-wordmark.svg" }, { name: "Node.js", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original-wordmark.svg" }, { name: "Vue.js", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg" }, { name: "PHP", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" }, { name: "Laravel", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-original.svg" }, { name: "Laragon", img: "skils/laragon-removebg-preview.png" }, { name: "Git", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" }, { name: "GitHub", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" }, { name: "Figma", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" }, { name: "Canva", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/canva/canva-original.svg" },], ...[ /* duplikat sama */ ] ].map((skill, i) => (
-                <div key={i} className="skill-card-wrapper flex-shrink-0 w-32 h-32">
-                  <div className="group bg-gray-800/50 backdrop-blur-md border border-gray-700/50 rounded-xl shadow-lg transition-all duration-300 h-full flex flex-col items-center justify-center">
-                    <img src={skill.img} alt={skill.name} className="w-14 h-14 object-contain mb-2 transition-transform duration-300 group-hover:scale-110" />
-                    <p className="text-gray-300 text-xs font-medium">{skill.name}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-            <style>{`
-              .scroll-track { animation: scroll 40s linear infinite; }
-              @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-            `}</style>
-          </div>
-        </section>
+  <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-center">
+    yang Telah Saya Pelajari
+  </h2>
+
+  <p className="text-gray-400 text-center max-w-2xl mb-12">
+    Berikut adalah beberapa teknologi dan alat yang sering saya gunakan dalam proses pengembangan web.
+  </p>
+
+  <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-6 w-full max-w-6xl">
+
+    {[
+      { name: "HTML", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" },
+      { name: "CSS", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" },
+      { name: "JavaScript", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" },
+      { name: "TypeScript", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" },
+      { name: "React", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
+      { name: "Next.js", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" },
+      { name: "Tailwind CSS", img: "https://www.vectorlogo.zone/logos/tailwindcss/tailwindcss-icon.svg" },
+      { name: "MySQL", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original-wordmark.svg" },
+      { name: "Node.js", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original-wordmark.svg" },
+      { name: "Vue.js", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg" },
+      { name: "PHP", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" },
+      { name: "Laravel", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-original.svg" },
+      { name: "Laragon", img: "skils/laragon-removebg-preview.png" },
+      { name: "Git", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" },
+      { name: "GitHub", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" },
+      { name: "Figma", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" },
+      { name: "Canva", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/canva/canva-original.svg" },
+
+      // ⭐ Tambahan Baru (PASTI MUNCUL)
+      { name: "Discord", img: "skils/DC-logo.jpg" },
+      { name: "CapCut", img: "skils/CapCut.jpg" },
+    ].map((skill, i) => (
+      <div
+        key={i}
+        className="
+          group relative p-4 rounded-2xl
+          bg-gradient-to-b from-gray-800/40 to-gray-900/20
+          border border-gray-700/40
+          shadow-lg
+          backdrop-blur-xl
+          flex flex-col items-center justify-center
+          transition-all duration-300
+          hover:scale-[1.12]
+          hover:shadow-[0_0_20px_rgba(0,150,255,0.4)]
+          hover:border-blue-400/70
+        "
+      >
+        <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-blue-400/10 to-purple-500/10 opacity-0 group-hover:opacity-100 blur-xl transition"></div>
+
+        <img
+          src={skill.img}
+          alt={skill.name}
+          className="w-14 h-14 object-contain relative z-10 drop-shadow-md"
+        />
+
+        <p className="text-gray-200 text-sm font-semibold text-center mt-2 relative z-10">
+          {skill.name}
+        </p>
+      </div>
+    ))}
+  </div>
+</section>
+
 
         {/* PROJECTS */}
 <section id="projects" className="w-full bg-black/20 flex flex-col items-center justify-center py-24 fade-in">
