@@ -275,7 +275,7 @@ export default function Home() {
         {
           title: "Hotel Booking App",
           desc: "Website Hotel Berbasis Laravel.",
-          img: "projects/img-hotel.png",
+          img: "projects/newHotel.png",
           github: "https://github.com/farras2121/bnsp-hotel",
           linkedin: "https://www.linkedin.com/posts/farras-ghalyandra-644304387_hotel-website-is-a-web-based-hotel-booking-activity-7384563766392143872-Qmxf?utm_source=share&utm_medium=member_desktop&rcm=ACoAAF9DcpQBrXQKDbn1bGpsCaKH80KlGVPBcz4",
           type: "landscape"
