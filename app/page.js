@@ -203,7 +203,7 @@ export default function Home() {
       { name: "GitHub", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" },
       { name: "Figma", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" },
       { name: "Canva", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/canva/canva-original.svg" },
-      { name: "Discord", img: "skils/DC-logo.jpg" },
+      { name: "Discord", img: "skils/DC-Logo.jpg" },
       { name: "CapCut", img: "skils/CapCut.jpg" },
     ].map((skill, i) => (
       <div
