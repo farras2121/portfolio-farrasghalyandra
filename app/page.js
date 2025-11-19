@@ -203,8 +203,6 @@ export default function Home() {
       { name: "GitHub", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" },
       { name: "Figma", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" },
       { name: "Canva", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/canva/canva-original.svg" },
-
-      // ⭐ Tambahan Baru (PASTI MUNCUL)
       { name: "Discord", img: "skils/DC-logo.jpg" },
       { name: "CapCut", img: "skils/CapCut.jpg" },
     ].map((skill, i) => (
@@ -260,15 +258,15 @@ export default function Home() {
       {[
         {
           title: "Travel Website",
-          desc: "Laravel-based tour package booking website.",
+          desc: "Website Travel Berbasis Laravel.",
           img: "projects/img-travel.png",
           github: "https://github.com/farras2121/BNSP-Travel.git",
           linkedin: "https://www.linkedin.com/posts/farras-ghalyandra-644304387_website-travel-berbasis-laravel-yang-dirancang-activity-7392913554615496704-127X?utm_source=share&utm_medium=member_desktop&rcm=ACoAAF9DcpQBrXQKDbn1bGpsCaKH80KlGVPBcz4",
           type: "landscape"
         },
         {
-          title: "Scholarship Application Website",
-          desc: "Laravel-based scholarship registration website.",
+          title: "Website Beasiswa",
+          desc: "Website Beasiswa Berbasis Laravel.",
           img: "projects/img-beasiswa.png",
           github: "https://github.com/farras2121/beasiswa-bnsp",
           linkedin:"https://www.linkedin.com/posts/farras-ghalyandra-644304387_scholarship-website-is-a-web-based-scholarship-activity-7384927241261989888-0hm5?utm_source=share&utm_medium=member_desktop&rcm=ACoAAF9DcpQBrXQKDbn1bGpsCaKH80KlGVPBcz4",
